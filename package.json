@@ -1,0 +1,32 @@
+{
+  "name": "showcase",
+  "version": "1.0.0",
+  "description": "a repo to try and showcase some of the experience i gained over the years",
+  "main": "index.js",
+  "dependencies": {
+    "turbo-darwin-arm64": "^2.5.6"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CamelJohn/showcase.git"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.6"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CamelJohn/showcase/issues"
+  },
+  "homepage": "https://github.com/CamelJohn/showcase#readme",
+  "packageManager": "npm@11.6.0"
+}
