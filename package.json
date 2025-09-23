@@ -3,15 +3,13 @@
   "version": "1.0.0",
   "description": "a repo to try and showcase some of the experience i gained over the years",
   "main": "index.js",
-  "dependencies": {
-    "turbo-darwin-arm64": "^2.5.6"
-  },
   "workspaces": [
     "apps/*",
     "packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "docker-compose -f docker-compose.dev.yml up --build"
   },
   "repository": {
     "type": "git",
