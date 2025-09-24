@@ -14,9 +14,30 @@ services:
     - ./packages:/app/packages
     environment:
       - NODE_ENV=development
-      # Enable polling for HMR to function correctly with volumes
       - CHOKIDAR_USEPOLLING=true
     command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+    depends_on:
+      - products
+    networks:
+      - turborepo-network
+
+  admin:
+    build:
+      context: .
+      dockerfile: ./apps/admin/Dockerfile
+      platforms:
+        - linux/arm64
+    ports:
+      - "5174:5174"
+    volumes:
+      - ./apps/admin:/app/apps/admin
+      - ./packages:/app/packages
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+    stdin_open: true
+    tty: true
     depends_on:
       - products
     networks:

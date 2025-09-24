@@ -11,7 +11,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "docker-compose -f docker-compose.dev.yml up --build",
-    "undev": "docker-compose -f docker-compose.dev.yml down"
+    "undev": "docker-compose -f docker-compose.dev.yml down",
+    "build": "turbo run build"
   },
   "repository": {
     "type": "git",

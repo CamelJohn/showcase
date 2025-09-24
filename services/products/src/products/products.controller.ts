@@ -25,7 +25,7 @@ export class ProductsController {
   }
 
   @Post()
-  create(@Body() product: Partial<Product>): Promise<Product> {
+  create(@Body() product: Omit<Product, 'id'>): Promise<Product> {
     return this.productsService.create(product);
   }
 

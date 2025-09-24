@@ -1,14 +1,18 @@
 {
   "compilerOptions": {
-    "rootDirs": [
-      "packages",
-      "apps",
-      "services"
-    ],
+    "rootDirs": ["packages", "apps", "services"],
+    "baseUrl": ".",
+    // "paths": {
+    //   "@showcase/ui": ["packages/ui/src"],
+    //   "@showcase/types": ["packages/types/src"]
+    // }
   },
+  
   "files": [],
   "references": [
     { "path": "packages/types" },
-    { "path": "apps/storefront" }
+    { "path": "packages/ui" },
+    { "path": "apps/storefront" },
+    { "path": "services/products" }
   ]
 }
