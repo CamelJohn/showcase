@@ -1,10 +1,8 @@
 import { http, HttpResponse } from 'msw';
-import { mockProducts } from '../data/product';
-
-const products = mockProducts(20);
+import { mockedProducts } from '../data/product';
 
 const listProducts = http.get('/api/products', () => {
-  return HttpResponse.json(products, {
+  return HttpResponse.json(mockedProducts, {
     status: 200,
     headers: {
       'Content-Type': 'application/json',
@@ -13,7 +11,7 @@ const listProducts = http.get('/api/products', () => {
 });
 
 const getProduct = http.get('/api/products/:id', ({ params }) => {
-  const product = products.find((p) => p.id === params.id);
+  const product = mockedProducts.find((p) => p.id === params.id);
   if (!product) {
     return HttpResponse.json({ error: 'Product not found' }, { status: 404 });
   }

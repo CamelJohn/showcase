@@ -15,3 +15,5 @@ export function mockProduct(): IProduct {
 export function mockProducts(count: number): IProduct[] {
   return Array.from({ length: count }, () => mockProduct());
 }
+
+export const mockedProducts: IProduct[] = mockProducts(20);
