@@ -10,12 +10,8 @@ services:
     ports:
       - "5173:5173"
     volumes:
-      # Mount the entire codebase for hot reloading
-      - .:/app
-      # Create an anonymous volume for node_modules to prevent local dependencies from being used
-      - /app/node_modules
-      # Mount the Turbo repo cache
-      - turborepo-cache:/app/.turbo
+    - ./apps/storefront:/app/apps/storefront
+    - ./packages:/app/packages
     environment:
       - NODE_ENV=development
       # Enable polling for HMR to function correctly with volumes
