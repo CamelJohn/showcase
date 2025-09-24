@@ -1,5 +1,9 @@
-import { createBrowserRouter, RouterProvider, type RouteObject } from 'react-router-dom';
+import { createBrowserRouter, Outlet, RouterProvider, type RouteObject } from 'react-router-dom';
+
 import { MainLayout } from '@showcase/ui';
+
+import { CreateProductPage } from './pages/products-page/page';
+import { createProductAction } from './pages/products-page/action';
 
 const routes: RouteObject[] = [
   {
@@ -17,11 +21,15 @@ const routes: RouteObject[] = [
       },
       {
         path: 'products',
-        element: <div>Products List</div>,
+        element: <div>
+          <h1>Products List</h1>
+          <Outlet />
+        </div>,
         children: [
           {
             path: 'new',
-            element: <div>New Product</div>,
+            element: <CreateProductPage />,
+            action: createProductAction
           },
           {
             path: ':id',
