@@ -19,11 +19,47 @@ services:
     command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
     stdin_open: true
     tty: true
+    depends_on:
+      - products
     networks:
       - turborepo-network
 
+  products:
+    build:
+      context: .
+      dockerfile: ./services/products/Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./services/products:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgres://postgres:postgres@products-db:5432/products
+    depends_on:
+      - products-db
+
+  products-db:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=products
+    ports:
+      - "5432:5432"
+    volumes:
+      - products-db-data:/var/lib/postgresql/data
+    networks:
+      - turborepo-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 volumes:
   turborepo-cache:
+  products-db-data:
 
 networks:
   turborepo-network:
