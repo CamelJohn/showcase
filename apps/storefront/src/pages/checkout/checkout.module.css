@@ -1,0 +1,12 @@
+.checkoutPage {
+  padding: 2rem;
+}
+
+.checkoutList {
+  list-style: none;
+  padding: 0;
+}
+
+.checkoutList li {
+  margin-bottom: 0.5rem;
+}
