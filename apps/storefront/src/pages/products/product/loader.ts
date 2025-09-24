@@ -6,11 +6,11 @@ export async function productLoader({ params }: LoaderFunctionArgs) {
     throw new Response('Product ID missing', { status: 400 });
   }
 
-  const res = await fetch(`/api/products/${params.productId}`);
+  const response = await fetch(`http://localhost:3001/products/${params.productId}`);
 
-  if (!res.ok) throw new Response('Not Found', { status: 404 });
+  if (!response.ok) throw new Response('Not Found', { status: 404 });
 
-  const product: IProduct = await res.json();
+  const product: IProduct = await response.json();
 
   return product;
 }

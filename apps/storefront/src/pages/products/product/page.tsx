@@ -17,7 +17,7 @@ export function ProductPage() {
       <div className={styles.info}>
         <h2 className={styles.title}>{product.title}</h2>
         <p className={styles.description}>{product.description}</p>
-        <p className={styles.price}>${product.price.toFixed(2)}</p>
+        <p className={styles.price}>${product.price}</p>
         <p className={styles.stock}>
           {product.stock > 0 ? `${product.stock} in stock` : "Out of stock"}
         </p>
