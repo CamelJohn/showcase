@@ -9,6 +9,8 @@ import { productsLoader } from './pages/products/loader';
 import { ProductPage } from './pages/products/product/page';
 import { productLoader } from './pages/products/product/loader';
 
+import { CartPage } from './pages/cart/page';
+
 const routes: RouteObject[] = [
   {
     path: '/',
@@ -17,7 +19,7 @@ const routes: RouteObject[] = [
       { index: true, element: <HomePage /> },
       { path: 'products', element: <ProductsPage />, loader: productsLoader },
       { path: 'products/:productId', element: <ProductPage />, loader: productLoader },
-      //   { path: "cart", element: <Cart /> },
+        { path: "cart", element: <CartPage /> },
       //   { path: "checkout", element: <Checkout /> },
     ],
   },

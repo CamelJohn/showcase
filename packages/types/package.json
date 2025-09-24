@@ -2,5 +2,8 @@
   "name": "@showcase/types",
   "version": "1.0.0",
   "main": "index.ts",
-  "types": "index.ts"
+  "types": "index.ts",
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
 }
