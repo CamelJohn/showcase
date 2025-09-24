@@ -1,4 +1,11 @@
 {
+  "compilerOptions": {
+    "rootDirs": [
+      "packages",
+      "apps",
+      "services"
+    ],
+  },
   "files": [],
   "references": [
     { "path": "packages/types" },

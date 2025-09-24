@@ -5,7 +5,7 @@ import './index.css';
 import { CartProvider } from './state/cart/provider.tsx';
 
 async function enableMocking() {
-  if (import.meta.env.MODE !== 'development') {
+  if (import.meta.env.MODE === 'development') {
     return;
   }
   const { worker } = await import('./mocks/browser.ts');
